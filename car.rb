@@ -2,9 +2,10 @@ class Car
   # 定数を追加
   UP_SPEED = 10
   DOWN_SPEED = 20
+  MAX_PASSENGERS = 4
 
   @@count = 0
-  attr_accessor :number, :color
+  attr_accessor :number, :color, :passengers
   # speedは外部から設定しないのでreaderで定義
   # @speedが使えるようになる
   attr_reader :speed
@@ -14,6 +15,7 @@ class Car
     @color = color
     # @speedを初期化
     @speed = 0
+    @passengers = 1
     @@count += 1
   end
 
@@ -38,6 +40,17 @@ class Car
              else
                @speed - DOWN_SPEED
              end
+  end
+
+  def get_on
+    if @passengers < MAX_PASSENGERS
+      @passengers += 1
+      puts "乗車しました。"
+    else
+      puts "乗車できません。この車の最大乗車人数は4人です。"
+      @passengers
+    end
+    
   end
 
   def self.count
