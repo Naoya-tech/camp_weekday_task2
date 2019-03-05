@@ -24,7 +24,7 @@ class Car
     @speed += UP_SPEED
     if @speed >= 50
       puts "[ALERT]スピードが#{@speed}になりました。減速します。"
-      @speed = @speed - DOWN_SPEED
+      speed_down
     elsif @speed >= 30 
       puts "[ALERT]スピードが#{@speed}になりました。" 
     end
@@ -65,7 +65,7 @@ class TrackCar < Car
 
 attr_reader :load_weight
 
-def initialize(number,color,load_weight="500")
+def initialize(number,color,load_weight=500)
   @load_weight = load_weight
 end
 
